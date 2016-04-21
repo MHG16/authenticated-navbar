@@ -3,7 +3,7 @@ import $ from 'jquery';
 //need this to use a react router
 import {hashHistory} from 'react-router';
 //need to import the nav bar
-import Navigation from './Navigation';
+import Navigation from './Navigation.js';
 import user from '../models/user';
 
 

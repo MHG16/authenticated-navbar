@@ -2,7 +2,7 @@ import React from 'react';
 //need this to use a react router
 import {Link} from 'react-router';
 //user her is an instantiated model
-import user from '..models/user';
+import user from '../models/user';
 import $ from 'jquery';  
 
 export default React.createClass({
@@ -22,7 +22,7 @@ export default React.createClass({
 					//we will access user with this.state 
 						user: user 
 				});
-			})
+			});
 	},
 
 	//function to put the nav bar on the page
@@ -58,7 +58,7 @@ export default React.createClass({
 				);
 		}
 
-	}
+	},
 
 	//function that runs when event handler logout is run
 	logout: function(e) {
@@ -72,28 +72,10 @@ export default React.createClass({
 			type: 'POST',
 			url: 'auth/logout'
 
-		})
+		});
 
 	}
-
-)};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 

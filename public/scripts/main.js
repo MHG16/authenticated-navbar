@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 //now import the pages we have made (these are components)
 import HomePage from './components/Home.js';
-import LoginPage from './components/LoginPage';
+import LoginPage from './components/Login';
 import DashboardPage from './components/Dashboard.js';
 import RegisterPage from './components/Register.js';
 
@@ -17,7 +17,7 @@ ReactDOM.render(
 		<Route path="/Login" component={LoginPage} />
 		<Route path="/Register" component={RegisterPage} />
 	</Router>,
-	document.queryselector('.title')
+	document.querySelector('.title')
 );
 
 

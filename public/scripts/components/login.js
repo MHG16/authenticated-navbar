@@ -1,7 +1,6 @@
-//need Backbone as this is a Backbone model
-import backbone from 'backbone';
+import React from 'react';
 //need to import the nav bar
-import Navigation from '.Navigation';
+import Navigation from './Navigation';
 
 //this will create the view for the Login page
 //We first put the navigation bar on the page
