@@ -5,20 +5,21 @@ import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 //now import the pages we have made (these are components)
 import HomePage from './components/Home.js';
-import LoginPage from './components/Login';
-import DashboardPage from './components/Dashboard.js';
+import LoginPage from './components/Login.js';
+//import DashboardPage from './components/Dashboard.js';
 import RegisterPage from './components/Register.js';
 
 //now render your pages to the title div using a React router and the necessary components
 
+
+
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={HomePage} />
-		<Route path="/Login" component={LoginPage} />
-		<Route path="/Register" component={RegisterPage} />
+		<Route path="/register" component={RegisterPage} />
+		<Route path="/login" component={LoginPage} />
 	</Router>,
 	document.querySelector('.title')
 );
-
 
 
