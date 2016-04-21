@@ -26,11 +26,11 @@ export default React.createClass({
 	//Have 4 input boxes: first name, last name, email and password
 	//Finally, have a submit button
 	render: function () {
+		console.log('render');
 		return (
-			console.log('render');
 			<section>
 				<Navigation/>
-				<h1>Register<h1>
+				<h1>Register</h1>
 				<form onSubmit={this.register}>
 					<input type="text" placeholder="First name" ref="firstName"/>
 					<input type="text" placeholder="Last name" ref="lastName"/>
@@ -42,7 +42,39 @@ export default React.createClass({
 			);
 	},
 
+	//function that connects to server for registration
+	onSubmit: function () {
+		console.log('register');
+		//prevent the default behavior
+		e.preventDefault();
+		//use ajax to implement functionality to register
+		$.ajax({
+			url: '/auth/register',
+			type: 'POST',
+			data: {
+				email: this.refs.email.value,
+				password: this.refs.password.value,
+				firstName: this.refs.firstName.value,
+				lastName: this.refs.lastName.value
+			},
+			// dataType: 'json',
+			headers: {
+				Accept: 'application/json'
+			},
+			success: (registeredUser) => {
+				console.log('success');
+				console.log(registeredUser);
+				//if user successfully registers, then the set the state of this user.
+				this.state.user.set(registeredUser);
+				console.log(this.state.user);
+				//what does this do?   
+				hashHistory.push('/');
+			},
+			error: (errorArg) => {
+				console.log('error');
+			}
+		});	
+	}
 
-
-})
+});
 
