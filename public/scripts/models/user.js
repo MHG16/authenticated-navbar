@@ -1,22 +1,22 @@
-//need Backbone as this is a Backbone model
-import backbone from 'backbone';
-//need to import the nav bar
-import Navigation from '.Navigation';
+//need to import Backbone as this is a backbone model
+import Backbone from 'backbone';
 
-//this will create the view for the Login page
-//We first put the navigation bar on the page
-//contains an email text box, a password text box and a submit button
-export default React.createClass({
-	render: function() {
-		return (
-			<section>
-				<Navigation/>
-				<form>
-					<h1>Login</h1><input type="text" placeholder="email"></input> 
-					<h1>Password</h1><input type="text" placeholder="password"></input>
-					<button type="submit">Submit</button>
-				</form>
-			</section>  
-			);
-	}
+//defines a user to have an id, firstName, lastName, email address
+//createdAt, updatedAt with default values
+const UserModel = Backbone.Model.extend({
+	defaults: {
+		id: null,
+		firstName: '',
+		lastName: '',
+		email: '',
+		createdAt: '',
+		updatedAt: ''
+
+	},
+
+	idAttribute: 'id'
+
+
 });
+
+export default new UserModel(window.user);
