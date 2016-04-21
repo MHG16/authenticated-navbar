@@ -1,8 +1,9 @@
 import React from 'react';
 //need this to use a react router
 import {Link} from 'react-router';
-
-import $ from jquery;  
+//user her is an instantiated model
+import user from '..models/user';
+import $ from 'jquery';  
 
 export default React.createClass({
 	getIntialState: function () {
@@ -18,6 +19,7 @@ export default React.createClass({
 				console.log('the user was changed');
 				//set the state of this user to user- but why?
 				this.setState({
+					//we will access user with this.state 
 						user: user 
 				});
 			})
@@ -63,6 +65,7 @@ export default React.createClass({
 		//prevent the default event
 		e.preventDefault();
 		console.log('User clicked logout');
+		//clear the user state since user is logged out.  
 		this.state.user.clear();
 		//send message to the server that user logged out, disconnect user from server
 		$.ajax({
