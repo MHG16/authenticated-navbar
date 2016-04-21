@@ -31,7 +31,6 @@ export default React.createClass({
 		//First link is to Home page
 		//Second is to Dashboard Page
 		//Third is to logout page with an event handler
-		//third is to 
 		if(this.state.user.get('id')) {
 			return (
 				<nav>
@@ -39,24 +38,54 @@ export default React.createClass({
 					<Link to='/Dashboard'>Dashboard</Link>
 					<a href='#' onClick={this.logout}>Logout</a>
 				</nav>
-				)
-
-
+			);
 
 		}
-
+		//if not yet logged in diplay the following nav bar
+		//a React Router is used here
+		//First link is to the Home Page
+		//Second is to the Login Page
+		//Third is to the Register Page
+		else  {
+				return (
+					<nav>
+						<Link to="/">Home</Link>
+						<Link to="/Login">Login</Link>
+						<Link to="/Register">Register</Link>
+					</nav>
+				);
+		}
 
 	}
 
+	//function that runs when event handler logout is run
+	logout: function(e) {
+		//prevent the default event
+		e.preventDefault();
+		console.log('User clicked logout');
+		this.state.user.clear();
+		//send message to the server that user logged out, disconnect user from server
+		$.ajax({
+			type: 'POST',
+			url: 'auth/logout'
 
+		})
 
 	}
 
+)};
 
 
 
 
-})
+
+
+
+
+
+
+
+
 
 
 
