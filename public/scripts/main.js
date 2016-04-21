@@ -16,10 +16,10 @@ import RegisterPage from './components/Register.js';
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={HomePage} />
-		<Route path="/register" component={RegisterPage} />
-		<Route path="/login" component={LoginPage} />
+		<Route path="/Register" component={RegisterPage} />
+		<Route path="/Login" component={LoginPage} />
 	</Router>,
-	document.querySelector('.title')
+	document.querySelector('body')
 );
 
 
